@@ -10,7 +10,6 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     ruby-progressbar (1.7.5)
-    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
@@ -18,4 +17,3 @@ PLATFORMS
 DEPENDENCIES
   minitest
   minitest-reporters
-  unicode_utils

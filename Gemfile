@@ -4,4 +4,3 @@ source "https://rubygems.org"
 # gem "rails"
 gem 'minitest'
 gem 'minitest-reporters'
-gem 'unicode_utils'
