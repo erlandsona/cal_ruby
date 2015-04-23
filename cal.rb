@@ -3,4 +3,6 @@
 month = ARGV[0]
 year = ARGV[1]
 
-`cal #{month} #{year}`
+output = `cal #{month} #{year}`
+
+puts output
