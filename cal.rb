@@ -5,8 +5,10 @@ require_relative 'lib/month'
 month = ARGV[0]
 year = ARGV[1]
 
-puts `cal #{month} #{year}`
+#Integration Tests
+#puts `cal #{month} #{year}`
 
-#m = Month.new(month, year)
-#
-#puts m.to_s
+#Unit Tests
+
+
+puts Month.new(month, year).to_s
