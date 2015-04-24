@@ -6,36 +6,41 @@ Implementation of the Unix cal program in Ruby
 1. Create Repo w/License
 2. Write README.md
 3. Setup/Tests:
-  - Make test directory and create...
-    - helper.rb and test\_\*.rb
-  - Do a bundle init and install to install necessary gems
-  - In the root of the project create...
-    - cal.rb and Rakefile
-    - `chmod +x cal.rb` to make the file executable
+  1. Make test directory and create...
+    1. helper.rb and test\_\*.rb
+  2. Do a bundle init and install to install necessary gems
+  3. In the root of the project create...
+    2. cal.rb and Rakefile
+    3. `chmod +x cal.rb` to make the file executable
 4. Write integration tests
-  - months\_that\_start\_on\_sunday?
-  - regular\_leap\_years
-  - century\_leap\_years
-  - 400\_year\_leap\_years
-  - test\_number\_of\_days\_for\_each\_month
-    - num\_of\_days\_january
-    - num\_of\_days\_march
-    - num\_of\_days\_april
-    - num\_of\_days\_may
-  - test\_number\_of\_days\_for\_special\_case
-    - num\_of\_days\_february\_regular
-    - num\_of\_days\_february\_leap
-  - check\_date\_is\_greater\_than\_min
+  1. months\_that\_start\_on\_sunday?
+  2. regular\_leap\_years
+  3. century\_leap\_years
+  4. 400\_year\_leap\_years
+  5. test\_number\_of\_days\_for\_each\_month
+    1. num\_of\_days\_january
+    2. num\_of\_days\_march
+    3. num\_of\_days\_april
+    4. num\_of\_days\_may
+  6. test\_number\_of\_days\_for\_special\_case
+    1. num\_of\_days\_february\_regular
+    2. num\_of\_days\_february\_leap
+  7. test\_min\_date
+  8. test\_max\_date
+  9. check\_date\_is\_greater\_than\_min
     - 1800
-  - check\_date\_is\_less\_than\_max
+  10. check\_date\_is\_less\_than\_max
     - 3000
-  - _Error Cases_
-    - "April" 2014
-    - 2014(year) 04(month)
+  11. _Error Cases_
+    1. "April" 2014
+    2. 2014(year) 04(month)
 5. __Implementation__
   - Implement Specifications Below...
 
 ## Specifications
+
+min date = Jan 1 1800
+max date = Dec 31 2999
 
 
 
