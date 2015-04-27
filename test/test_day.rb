@@ -11,45 +11,45 @@ class TestDay < Minitest::Test
   end
 
   def test_zellers_returns_zero
-    d = Day.new(1, 1, 2012)
-    z = d.zellers(1, 13, 12, 20)
+    d = Day.new(1, 13, 2012)
+    z = d.zellers(1, 1, 2000)
     assert_equal 0, z
   end
 
   def test_zellers_returns_one
     d = Day.new(1, 1, 2012)
-    z = d.zellers(1, 5, 49, 22)
+    z = d.zellers(13, 2, 2000)
     assert_equal 1, z
+  end
+
+  def test_zellers_returns_two
+    d = Day.new(1, 1, 2012)
+    z = d.zellers(1, 10, 2012)
+    assert_equal 2, z
   end
 
   def test_zellers_returns_three
     d = Day.new(1, 1, 2012)
-    z = d.zellers(2, 6, 21, 20)
-    assert_equal 1, z
+    z = d.zellers(14, 1, 1800)
+    assert_equal 3, z
   end
 
   def test_zellers_returns_four
     d = Day.new(1, 1, 2012)
-    z = d.zellers(2, 6, 21, 20)
-    assert_equal 1, z
+    z = d.zellers(2, 6, 2021)
+    assert_equal 4, z
   end
 
   def test_zellers_returns_five
     d = Day.new(1, 1, 2012)
-    z = d.zellers(2, 6, 21, 20)
-    assert_equal 1, z
+    z = d.zellers(30, 4, 2015)
+    assert_equal 5, z
   end
 
   def test_zellers_returns_six
     d = Day.new(1, 1, 2012)
-    z = d.zellers(2, 6, 21, 20)
-    assert_equal 1, z
-  end
-
-  def test_zellers_returns_seven
-    d = Day.new(1, 1, 2012)
-    z = d.zellers(2, 6, 21, 20)
-    assert_equal 1, z
+    z = d.zellers(27, 12, 2999)
+    assert_equal 6, z
   end
 
 

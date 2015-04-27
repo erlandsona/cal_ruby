@@ -24,8 +24,9 @@ class Day
   #
   ###########################
 
-  def zellers(q, m, k, j)
-    h = (q + ((13 * (m + 1)) / 5).floor + k + (k / 4).floor + (j / 4).floor + (5 * j)) % 7 
+  def zellers(day, month, year)
+    month += 12 and year -= 1 if month <= 2
+    h = (day + ((26 * (month + 1)) / 10).floor + year + (year / 4).floor + (6 * (year/100).floor) + (year/400).floor) % 7
   end
 
 end
