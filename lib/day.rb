@@ -8,7 +8,7 @@ class Day
     @year  = y
   end
 
-  ################################### 
+  ###################################
   #
   #The following method implements Zeller's Congruence an algorithm to determin what day of the week it is.
   #

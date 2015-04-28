@@ -37,7 +37,9 @@ eos
       i < 9 ? days_of_month << " #{i + 1} " :
       days_of_month << "#{i + 1} "
     end
-    if week_length == 4
+    if week_length < 4
+      str << days_of_month.rstrip + "\n\n\n"
+    elsif week_length == 4
       str << days_of_month.rstrip + "\n\n"
     else
       str << days_of_month.rstrip + "\n"
