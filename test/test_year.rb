@@ -9,14 +9,14 @@ class TestYear < Minitest::Test
     assert_equal 2000, y.year
   end
 
- # def test_year_to_s_prints_something
- #   y = Year.new(2000).to_s
- #   output = "                             2000\n"
- #   assert_equal y, output
- # end
+  # def test_year_to_s_prints_something
+  #   y = Year.new(2000).to_s
+  #   output = "                             2000\n"
+  #   assert_equal y, output
+  # end
 
 
-  def test_year_to_s_prints_year
+  def test_year_to_s_prints_2000
     y = Year.new(2000).to_s
     output = <<-eos
                              2000
