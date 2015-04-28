@@ -1,6 +1,6 @@
 require_relative '../lib/day'
 
-class Month < Day
+class Month
   attr_reader :month, :year, :months, :month_lengths, :first_day_of_month
 
   def initialize(month, year)
