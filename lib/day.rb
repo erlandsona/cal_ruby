@@ -13,11 +13,7 @@ class Day
   #The following method implements Zeller's Congruence an algorithm to determin what day of the week it is.
   #
   #
-  # - h is the day of the week (0 = Saturday, 1 = Sunday, 2 = Monday, ..., 6 = Friday)
-  # - q is the day of the month (1..31)
-  # - m is the month (3 = March, 4 = April, 5 = May, ..., 14 = February)
-  # - k the year of the century (year % 100).
-  # - j is the zero-based century (actually (year/100).floor) For example, the zero-based centuries for 1995 and 2000 are 19 and 20 respectively (to not be confused with the common ordinal century enumeration which indicates 20th for both cases).
+  # - h is the day of the week (0 = Sunday, 1 = Monday, 2 = Tuesday, ..., 6 = Saturday)
   #
   # Check out the wikipedia article for more info...
   # http://en.wikipedia.org/wiki/Zeller's_congruence

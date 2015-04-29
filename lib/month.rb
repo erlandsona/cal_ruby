@@ -9,17 +9,32 @@ class Month
     @month = month
     @year = year
     @months = %w[January February March April May June July August September October November December]
-    @month_lengths = {
-       1 => 31,
-       2 => year % 400 == 0 ? 29 : year % 4 == 0 && year % 100 != 0 ? 29 : 28,
-       3 => 31, 4 => 30, 5 => 31, 6 => 30, 7 => 31, 8 => 31,
-       9 => 30, 10 => 31, 11 => 30, 12 => 31
-    }
+    @thirty_day_mo = [4, 6, 9, 11]
     @first_day_of_month = Day.new(1, month, year).zellers
   end
 
+
+  def num_of_days(month_num)
+    month_length = nil
+    if @thirty_day_mo.include?(month)
+      month_length = 30
+    elsif month == 2
+      if year % 400 == 0
+        month_length = 29
+      elsif year % 4 == 0 && year % 100 != 0
+        month_length = 29
+      else
+        month_length = 28
+      end
+    else
+      month_length = 31
+    end
+  end
+
+
   def to_s
     header = months[month - 1] + " #{year}"
+
     str = <<-eos
 #{header.center(20).rstrip}
 Su Mo Tu We Th Fr Sa
@@ -29,7 +44,7 @@ eos
     days_of_month = days_of_month.rjust(first_day_of_month * PADDING)
     week_length = 0
 
-    month_lengths[month].times do |i|
+    num_of_days(month).times do |i|
       if days_of_month.length > COLUMN_WIDTH
         str << days_of_month.rstrip + "\n"
         days_of_month = ""
@@ -39,12 +54,12 @@ eos
       days_of_month << "#{i + 1} "
     end
     if week_length < 4
-      str << days_of_month.rstrip + "\n\n\n"
-    elsif week_length == 4
-      str << days_of_month.rstrip + "\n\n"
-    else
-      str << days_of_month.rstrip + "\n"
+      return str << days_of_month.rstrip + "\n\n\n"
     end
+    if week_length == 4
+      return str << days_of_month.rstrip + "\n\n"
+    end
+    str << days_of_month.rstrip + "\n"
   end
 end
 
