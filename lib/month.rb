@@ -2,6 +2,8 @@ require_relative '../lib/day'
 
 class Month
   attr_reader :month, :year, :months, :month_lengths, :first_day_of_month
+  COLUMN_WIDTH = 20
+  PADDING = 3
 
   def initialize(month, year)
     @month = month
@@ -10,11 +12,10 @@ class Month
     @month_lengths = {
        1 => 31,
        2 => year % 400 == 0 ? 29 : year % 4 == 0 && year % 100 != 0 ? 29 : 28,
-       3 => 31, 4 => 30,
-       5 => 31, 6 => 30, 7 => 31, 8 => 31, 9 => 30, 10 => 31,
-      11 => 30, 12 => 31
+       3 => 31, 4 => 30, 5 => 31, 6 => 30, 7 => 31, 8 => 31,
+       9 => 30, 10 => 31, 11 => 30, 12 => 31
     }
-    @first_day_of_month = Day.new(1, month, year).zellers(1, month, year)
+    @first_day_of_month = Day.new(1, month, year).zellers
   end
 
   def to_s
@@ -25,11 +26,11 @@ Su Mo Tu We Th Fr Sa
 eos
 
     days_of_month = ""
-    days_of_month = days_of_month.rjust(first_day_of_month * 3)
+    days_of_month = days_of_month.rjust(first_day_of_month * PADDING)
     week_length = 0
 
     month_lengths[month].times do |i|
-      if days_of_month.length > 20
+      if days_of_month.length > COLUMN_WIDTH
         str << days_of_month.rstrip + "\n"
         days_of_month = ""
         week_length += 1
@@ -44,7 +45,6 @@ eos
     else
       str << days_of_month.rstrip + "\n"
     end
-    return str
   end
 end
 
