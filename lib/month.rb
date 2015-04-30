@@ -38,7 +38,7 @@ Su Mo Tu We Th Fr Sa
 eos
 
     days_of_month = String.new.rjust(first_day_of_month * PADDING)
-    num_of_weeks = 0
+    num_of_weeks = 1
 
     1.upto(num_of_days) do |i|
       date = i.to_s
@@ -52,7 +52,7 @@ eos
     end
 
     num_of_newlines = {true => "\n" * 3, false => "\n" * 2}
-    return str << days_of_month.rstrip + num_of_newlines[num_of_weeks < 4] if num_of_weeks <= 4
+    return str << days_of_month.rstrip + num_of_newlines[num_of_weeks <= 4] if num_of_weeks <= 5
     str << days_of_month.rstrip + "\n"
   end
 end
