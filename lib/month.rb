@@ -4,7 +4,7 @@ class Month
   attr_reader :month, :year, :first_day_of_month
   COLUMN_WIDTH = 20
   PADDING = 3
-  MONTHS = %w[January February March April May June July August September October November December]
+  MONTHS = %w[nil January February March April May June July August September October November December]
 
   def initialize(month, year)
     @month = month
@@ -30,7 +30,7 @@ class Month
 
 
   def to_s
-    header = MONTHS[month - 1] + " #{year}"
+    header = MONTHS[month] + " #{year}"
 
     str = <<-eos
 #{header.center(20).rstrip}
