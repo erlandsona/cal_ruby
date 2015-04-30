@@ -12,17 +12,14 @@ class Month
     @first_day_of_month = Day.new(1, month, year).zellers
   end
 
-  def is_leap_year?
-    is_leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
-  end
-
   def num_of_days
     thirty_day_mo = [4, 6, 9, 11].include?(month)
+    is_leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
     leap_cases = {true => 29, false => 28}
     month_length = 31
     month_length = 30 if thirty_day_mo
-    month_length = leap_cases[is_leap_year?] if month == 2
-    return month_length
+    month_length = leap_cases[is_leap_year] if month == 2
+    month_length
   end
 
   def to_s
