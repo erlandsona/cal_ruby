@@ -30,10 +30,9 @@ class Month
 
 
   def to_s
-    header = MONTHS[month] + " #{year}"
-
+    header = (MONTHS[month] + " #{year}").center(20).rstrip
     str = <<-eos
-#{header.center(20).rstrip}
+#{header}
 Su Mo Tu We Th Fr Sa
 eos
 
