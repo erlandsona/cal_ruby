@@ -9,26 +9,23 @@ class Month
     @month = month
     @year = year
     @months = %w[January February March April May June July August September October November December]
-    @thirty_day_mo = [4, 6, 9, 11]
     @first_day_of_month = Day.new(1, month, year).zellers
   end
 
+  def is_leap_year?
+    is_leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
+  end
 
-  def num_of_days(month_num)
-    month_length = nil
-    if @thirty_day_mo.include?(month)
-      month_length = 30
-    elsif month == 2
-      if year % 400 == 0
-        month_length = 29
-      elsif year % 4 == 0 && year % 100 != 0
-        month_length = 29
-      else
-        month_length = 28
-      end
-    else
-      month_length = 31
-    end
+  def thirty_day_mo?
+    [4, 6, 9, 11].include?(month)
+  end
+
+  def num_of_days
+    leap_cases = {true => 2, false => 3}
+    month_length = 31
+    month_length -= 1 if thirty_day_mo?
+    month_length -= leap_cases[is_leap_year?] if month == 2
+    return month_length
   end
 
 
@@ -44,7 +41,7 @@ eos
     days_of_month = days_of_month.rjust(first_day_of_month * PADDING)
     week_length = 0
 
-    num_of_days(month).times do |i|
+    num_of_days.times do |i|
       if days_of_month.length > COLUMN_WIDTH
         str << days_of_month.rstrip + "\n"
         days_of_month = ""
