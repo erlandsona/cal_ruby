@@ -40,15 +40,15 @@ eos
     days_of_month = String.new.rjust(first_day_of_month * PADDING)
     num_of_weeks = 0
 
-    num_of_days.times do |i|
-      date = "#{i + 1}"
+    1.upto(num_of_days) do |i|
+      date = i.to_s
       obj = {true => date.center(PADDING), false => date.ljust(PADDING)}
       if days_of_month.length > COLUMN_WIDTH
         str << days_of_month.rstrip + "\n"
         days_of_month = ""
         num_of_weeks += 1
       end
-      days_of_month << obj[i < 9]
+      days_of_month << obj[i <= 9]
     end
 
     num_of_newlines = {true => "\n" * 3, false => "\n" * 2}
