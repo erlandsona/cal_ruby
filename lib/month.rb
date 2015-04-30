@@ -16,18 +16,14 @@ class Month
     is_leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
   end
 
-  def thirty_day_mo?
-    [4, 6, 9, 11].include?(month)
-  end
-
   def num_of_days
-    leap_cases = {true => 2, false => 3}
+    thirty_day_mo = [4, 6, 9, 11].include?(month)
+    leap_cases = {true => 29, false => 28}
     month_length = 31
-    month_length -= 1 if thirty_day_mo?
-    month_length -= leap_cases[is_leap_year?] if month == 2
+    month_length = 30 if thirty_day_mo
+    month_length = leap_cases[is_leap_year?] if month == 2
     return month_length
   end
-
 
   def to_s
     header = (MONTHS[month] + " #{year}").center(20).rstrip
