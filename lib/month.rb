@@ -51,9 +51,9 @@ eos
       days_of_month << obj[i <= 9]
     end
 
-    num_of_newlines = {true => "\n" * 3, false => "\n" * 2}
-    return str << days_of_month.rstrip + num_of_newlines[num_of_weeks <= 4] if num_of_weeks <= 5
-    str << days_of_month.rstrip + "\n"
+    num_of_newlines = String.new
+    num_of_newlines += "\n" and num_of_weeks += 1 while num_of_weeks <= 6
+    str << days_of_month.rstrip + num_of_newlines
   end
 end
 
