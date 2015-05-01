@@ -14,12 +14,12 @@ class Month
 
   def num_of_days
     thirty_day_mo = [4, 6, 9, 11].include?(month)
-    is_leap_year = year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
+    is_leap_year = year % 400 == 0 || year % 4 == 0 && year % 100 != 0
     leap_cases = {true => 29, false => 28}
     month_length = 31
     month_length = 30 if thirty_day_mo
     month_length = leap_cases[is_leap_year] if month == 2
-    month_length
+    return month_length
   end
 
   def to_s
@@ -44,7 +44,10 @@ eos
     end
 
     num_of_newlines = String.new
-    num_of_newlines += "\n" and num_of_weeks += 1 while num_of_weeks <= 6
+    while num_of_weeks <= 6
+      num_of_newlines += "\n"
+      num_of_weeks += 1
+    end
     str << days_of_month.rstrip + num_of_newlines
   end
 end
